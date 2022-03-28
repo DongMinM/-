@@ -1,0 +1,39 @@
+'''
+어떤 양의 정수 X의 각 자리가 등차수열을 이룬다면, 
+그 수를 한수라고 한다. 등차수열은 연속된 두 개의 수의 차이가 일정한 수열을 말한다.
+N이 주어졌을 때, 1보다 크거나 같고, N보다 작거나 같은 한수의 개수를 출력하는 프로그램을 작성하시오.
+
+110 -> 99
+1 -> 1
+210 -> 105
+
+'''
+
+def han(x):
+    str_x = str(x)
+    error = []
+    i = 0
+    if len(str_x) == 1:
+        return True
+    elif len(str_x) == 2:
+        return True
+    elif len(str_x) == 3:
+        if int(str_x[1])-int(str_x[0]) == int(str_x[2])-int(str_x[1]):
+            return True
+    elif len(str_x) == 4:
+        if int(str_x[1])-int(str_x[0]) == int(str_x[2])-int(str_x[1]) == int(str_x[3])-int(str_x[2]):
+            return True
+    else :
+        return False
+    return False
+
+def han_num(n):
+    num = 0
+    i=1
+    while i<=n:
+        if han(i):
+            num+=1
+        i += 1
+    return num
+
+print(han_num(210))
